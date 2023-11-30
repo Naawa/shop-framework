@@ -1,2 +1,7 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+    import "$lib/components/Navigation.svelte"
+    import "$lib/routes/Landing.svelte"
+	import Landing from "$lib/routes/Landing.svelte";
+</script>
+
+<Landing />
