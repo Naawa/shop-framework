@@ -1,6 +1,5 @@
 <script lang="ts">
-    import "$lib/scss/typeface.scss"
-    import "$lib/scss/initial.scss"
+    import "$lib/scss/styles.scss"
 </script>
 
 <slot />

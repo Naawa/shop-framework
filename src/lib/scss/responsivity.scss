@@ -1,0 +1,20 @@
+html {
+    height: 100%;
+    width: 100%;
+    transition: 0.5s;
+
+    body {
+        width: clamp(250px, 100dvw, 100%);
+        padding: 0 4dvw;
+    }
+
+    @media (width < 400px) {
+        font-size: 8px;
+    }
+    @media (width < 600px) {
+        font-size: 12px;
+    }
+    @media (height > 1200px) {
+        font-size: clamp(24px, 0.8vw, 0.8vw);
+    }
+}

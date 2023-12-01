@@ -1,16 +1,15 @@
-$themes: (
- light: (
-   text: hsl(147, 22%, 8%),
-   background: hsl(150, 20%, 98%),
-   primary: hsl(177, 23%, 65%),
-   secondary: hsl(204, 22%, 87%),
-   accent: hsl(206, 23%, 47%),
- ),
- dark: (
-   text: hsl(147, 22%, 92%),
-   background: hsl(150, 20%, 2%),
-   primary: hsl(177, 23%, 35%),
-   secondary: hsl(201, 21%, 13%),
-   accent: hsl(206, 23%, 53%),
- ),
-);
+$text: hsl(0, 0%, 10%);
+$background: hsl(150, 20%, 98%);
+$primary: hsl(177, 23%, 65%);
+$secondary: hsl(204, 22%, 87%);
+$accent: hsl(206, 23%, 47%);
+
+* {
+    color: $text;
+}
+
+html {
+    body {
+        background-color: $background;
+    }
+}
