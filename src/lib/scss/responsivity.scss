@@ -8,13 +8,17 @@ html {
         padding: 0 4dvw;
     }
 
-    @media (width < 400px) {
-        font-size: 8px;
+
+    @media (height < 700px) and (width < 300px) {
+        font-size: 14px;
     }
-    @media (width < 600px) {
-        font-size: 12px;
+    @media (height > 1000px) and (width > 700px) {
+        font-size: 18px;
     }
-    @media (height > 1200px) {
-        font-size: clamp(24px, 0.8vw, 0.8vw);
+    @media (height > 1000px) and (width > 1000px) {
+        font-size: 24px;
+    }
+    @media (height > 1200px) and (width > 900px) {
+        font-size: 28px;
     }
 }
