@@ -6,5 +6,5 @@
 </script>
 
 <Navigation></Navigation>
-<Footer></Footer>
 <slot />
+<Footer></Footer>
