@@ -4,7 +4,7 @@
         justify-content: center;
         align-items: center;
         gap: clamp(6vw, 4em, 12vw);
-        height: 6em;
+        height: 4em;
 
         a {
             text-decoration: none;
