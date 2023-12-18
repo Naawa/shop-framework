@@ -3,7 +3,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: clamp(6vw, 4em, 12vw);
+        gap: clamp(4vw, 4em, 12vw);
         height: 4em;
 
         a {
@@ -17,6 +17,6 @@
 
 <nav>
     <a href="/"><b>UF</b></a>
-    <a href="/shop">Shop</a>
-    <a href="/cart">Cart</a>
+    <a href="/shop"><b>SHOP</b></a>
+    <a href="/cart"><b>CART</b></a>
 </nav>

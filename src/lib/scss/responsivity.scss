@@ -4,6 +4,7 @@ html {
     transition: 0.5s;
 
     body {
+        margin-top: 4em;
         width: clamp(250px, 100dvw, 100%);
         padding: 0 4dvw;
     }

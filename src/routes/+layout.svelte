@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Footer from "$lib/components/Footer.svelte";
-	import Navigation from "$lib/components/Navigation.svelte";
+	import HamburgerNav from "$lib/components/HamburgerNav.svelte";
     import "$lib/scss/styles.scss"
     
 </script>
 
-<Navigation></Navigation>
+<HamburgerNav></HamburgerNav>
 <slot />
 <Footer></Footer>
