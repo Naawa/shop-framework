@@ -2,9 +2,10 @@
 	import { fly } from "svelte/transition";
 
     let showMenu: boolean = false;
+    
     function toggleMenu() {
         showMenu = !showMenu;
-        document.querySelector("button")?.classList.toggle("inactive")
+        document.querySelector("button")?.classList.toggle("inactive");
     }
 </script>
 <style lang="scss">
