@@ -7,6 +7,20 @@ declare global {
 		// interface PageData {}
 		// interface Platform {}
 	}
+
+	interface Product  {
+		id: number,
+		title: string,
+		price: number,
+		sizes: string[],
+		colors: string[],
+		images: string[],
+		rating: number,
+		thumbnail: string,
+		description: string,
+		additionalInfo: string,
+		reviews: string[],
+	}
 }
 
 export {};

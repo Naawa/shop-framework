@@ -10,8 +10,8 @@ html {
     }
 
 
-    @media (height < 700px) and (width < 300px) {
-        font-size: 14px;
+    @media (height < 700px) and (width < 700px) {
+        font-size: 12px;
     }
     @media (height > 1000px) and (width > 700px) {
         font-size: 18px;
