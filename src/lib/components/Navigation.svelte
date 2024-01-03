@@ -16,7 +16,7 @@
 </style>
 
 <nav>
-    <a href="/"><b>UF</b></a>
+    <a href="/"><b>Unnamed Brand</b></a>
     <a href="/shop"><b>SHOP</b></a>
     <a href="/cart"><b>CART</b></a>
 </nav>
