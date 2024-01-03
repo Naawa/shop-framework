@@ -12,14 +12,9 @@ declare global {
 		id: number,
 		title: string,
 		price: number,
-		sizes: string[],
-		colors: string[],
 		images: string[],
 		rating: number,
-		thumbnail: string,
-		description: string,
-		additionalInfo: string,
-		reviews: string[],
+		description: string
 	}
 }
 

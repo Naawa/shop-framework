@@ -11,7 +11,7 @@
         }
     }
     function previousImage() {
-        if(index > 1) {
+        if(index > 0) {
             index--;
             src = images[index];
         }
@@ -48,35 +48,34 @@
         }
 
         img {
-            box-shadow: 0 0 5px 2px #2E2E2E20;
-            height: auto;
-            max-width: 100%;
+            box-shadow: 0 0 16px 4px #2E2E2E30;
+            height: 640px;
+            max-width: 640px;
         }
     }
 
-    @media (width < 1200px) {
+    @media (width < 800px) {
         div {
             grid-auto-flow: row;
-            height: 350px;
+            max-height: 350px;
             span {
                 grid-auto-flow: column;
-                order: 1;
             }
 
             img {
-                height: 300px;
                 width: 100%;
+                max-height: 300px;
             }
         }
     }
 </style>
 
 <div>
+    {#key src}
+        <img {src} alt="Slideshow.">
+    {/key}
     <span>      
         <button on:click={previousImage}></button>
         <button on:click={nextImage}></button>   
     </span>
-    {#key src}
-        <img {src} alt="Slideshow.">
-    {/key}
 </div>

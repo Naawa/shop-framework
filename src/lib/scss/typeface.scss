@@ -1,29 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Tajawal:700|Tajawal:400');
+
 body {
-  font-family: 'Open Sans';
+  font-family: 'Tajawal';
   font-weight: 400;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Open Sans';
-  font-weight: 900;
-}
-
-b {
-  font-family: 'Open Sans';
-  font-weight: 500;
+  font-family: 'Tajawal';
+  font-weight: 700;
 }
 
 html {font-size: 100%;} /* 16px */
 
-h1 {font-size: 3.053rem; /* 48.8px */}
+h1 {font-size: 4.210rem; /* 67.36px */}
 
-h2 {font-size: 2.442rem; /* 39.04px */}
-  
-h3 {font-size: 1.954rem; /* 31.2px */}
+h2 {font-size: 3.158rem; /* 50.56px */}
 
-h4 {font-size: 1.563rem; /* 24.96px */}
+h3 {font-size: 2.369rem; /* 37.92px */}
 
-h5 {font-size: 1.250rem; /* 20px */}
+h4 {font-size: 1.777rem; /* 28.48px */}
 
-small {font-size: 0.800rem; /* 12.8px */}
+h5 {font-size: 1.333rem; /* 21.28px */}
+
+small {font-size: 0.750rem; /* 12px */}
