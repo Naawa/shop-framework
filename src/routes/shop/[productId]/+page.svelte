@@ -2,6 +2,7 @@
 	import AddToCart from "$lib/components/AddToCart.svelte";
 	import QuantityCounter from "$lib/components/QuantityCounter.svelte";
 	import Slideshow from "$lib/components/Slideshow.svelte";
+    import SizeOption from "$lib/components/SizeOption.svelte";
 
     export let data;
     const { product } = data
@@ -57,6 +58,7 @@
             <h5>{product.rating} &#9958;</h5>
         </div>
         <p>{product.description}.</p>
+        <SizeOption></SizeOption>
         <QuantityCounter></QuantityCounter>
         <AddToCart></AddToCart>
     </div>
