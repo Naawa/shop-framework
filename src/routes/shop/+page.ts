@@ -21,7 +21,7 @@ export function load({ fetch }) {
 		{
 			id: 2,
 			title: "Signature Hoodie",
-			price: 49,
+			price: 59,
 			rating: 4.3,
 			description: "450 GSM",
 			images: ["../Mockup2.png", "../Mockup.png"],
@@ -38,7 +38,7 @@ export function load({ fetch }) {
 		{
 			id: 2,
 			title: "Signature Hoodie",
-			price: 49,
+			price: 59,
 			rating: 4.3,
 			description: "450 GSM",
 			images: ["../Mockup2.png", "../Mockup.png"],

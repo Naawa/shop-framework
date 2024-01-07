@@ -112,10 +112,10 @@
 </style>
 
 <nav>
-    <a href="/"><b>UF</b></a>
+    <a href="/"><b>Unnamed Brand</b></a>
     <a href="/shop"><b>SHOP</b></a>
     <a href="/cart"><b>CART</b></a>
-    <a href="/"><b>UF</b></a> 
+    <a href="/"><b>Unnamed Brand</b></a> 
     <!-- Used for logo on mobile nav. Hidden on normal nav.-->
     <button on:click={toggleMenu} class="inactive">
         <span></span>
@@ -125,7 +125,7 @@
 
 {#if showMenu}
     <div in:fly={{ duration: 400, opacity: 0.4}} out:fly={{ delay: 400, duration: 400}}>
-        <a on:click={toggleMenu} href="/" in:fly={{ delay: 50, duration: 400}} out:fly={{ delay: 50, duration: 400}}><b>UF</b></a>
+        <a on:click={toggleMenu} href="/" in:fly={{ delay: 50, duration: 400}} out:fly={{ delay: 50, duration: 400}}><b>Unnamed Brand</b></a>
         <a on:click={toggleMenu} href="/shop" in:fly={{ delay: 150, duration: 400}} out:fly={{ delay: 150, duration: 400}}><b>SHOP</b></a>
         <a on:click={toggleMenu} href="/cart" in:fly={{ delay: 250, duration: 400}} out:fly={{ delay: 250, duration: 400}}><b>CART</b></a>
     </div>

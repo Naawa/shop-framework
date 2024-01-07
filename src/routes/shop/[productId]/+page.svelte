@@ -1,11 +1,22 @@
 <script lang="ts">
-	import AddToCart from "$lib/components/AddToCart.svelte";
 	import QuantityCounter from "$lib/components/QuantityCounter.svelte";
 	import Slideshow from "$lib/components/Slideshow.svelte";
     import SizeOption from "$lib/components/SizeOption.svelte";
+	import ColorOption from "$lib/components/ColorOption.svelte";
+    import { cart } from "$lib/stores/cart.js";
 
     export let data;
     const { product } = data
+    
+    let item: CartItem;
+
+    $: item = {
+        id: product.id,
+        quantity: 1,
+        price: product.price,
+        title: product.title
+    }
+
 </script>
 
 <style lang="scss">
@@ -33,6 +44,17 @@
                     display: flex;
                     justify-content: space-between;
                 }
+
+                button {
+                    background-color: #2E2E2E;
+                    color: #FFFCFC;
+                    padding: 1em 0;
+                    border-radius: 16px;
+
+                    h5 {
+                        color: #FFFCFC;
+                    }
+                }
             }
         }
     }
@@ -58,8 +80,17 @@
             <h5>{product.rating} &#9958;</h5>
         </div>
         <p>{product.description}.</p>
-        <SizeOption></SizeOption>
-        <QuantityCounter></QuantityCounter>
-        <AddToCart></AddToCart>
+        <span>
+            <ColorOption></ColorOption>
+            <SizeOption></SizeOption>
+        </span>
+        {#key $cart}
+            {#if cart.exists(item) == false}
+                <QuantityCounter {item}></QuantityCounter>
+                <button on:click={() => cart.addItem(item)}><h5>ADD TO CART</h5></button>
+            {:else}
+                <h5>ADDED TO <a href="/cart">CART</a></h5>
+            {/if}
+        {/key}
     </div>
 </section>

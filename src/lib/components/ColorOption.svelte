@@ -1,12 +1,8 @@
-Git First Real Request
-
 <script>
     let height = 50;
 </script>
 
 <!-- Html -->
-
-<h1>TESTING HELLO WORLD</h1>
 
 <ul>
     <li>

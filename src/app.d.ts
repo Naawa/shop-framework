@@ -16,6 +16,12 @@ declare global {
 		rating: number,
 		description: string
 	}
+	interface CartItem  {
+		id: number,
+		quantity: number,
+		title: string,
+		price: number,
+	}
 }
 
 export {};
