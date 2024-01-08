@@ -1,6 +1,6 @@
 <script lang="ts">
 	import QuantityCounter from "$lib/components/QuantityCounter.svelte";
-import { cart } from "$lib/stores/cart";
+    import { cart } from "$lib/stores/cart";
 </script>
 
 <style lang="scss">
@@ -33,17 +33,17 @@ import { cart } from "$lib/stores/cart";
     </span>
     <br>
     <br>
-    {#each $cart as item} 
+    {#each $cart as product} 
         <div>
             <span>
-                <h4><a href="/shop/{item.id}">{item.title}</a></h4>
+                <h4><a href="/shop/{product.id}">{product.title}</a></h4>
                 <p></p>
-                <QuantityCounter {item}></QuantityCounter>
+                <QuantityCounter {product}></QuantityCounter>
             </span>
-            <h4>$ {item.price}</h4>
+            <h4>$ {product.price}</h4>
             <br>
             <br>
-            <button on:click={() => cart.removeItem(item)}><h5>Remove Item</h5></button>
+            <button on:click={() => cart.remove(product)}><h5>Remove product</h5></button>
         </div>
         <br>
     {/each}

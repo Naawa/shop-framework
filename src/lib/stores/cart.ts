@@ -1,36 +1,41 @@
 import { browser } from "$app/environment";
-import { writable } from "svelte/store";
+import { writable} from "svelte/store";
 
-function createCart() {  
-    let items: CartItem[] = [];
-
-    /**
-     * The following code initializes the cart with an existing one from local storage.
-     * It is commented out because it is unsafe at this time. This means that cart will not save upon refresh until we can use either local storage safely or save cart to database after user login.
-     */
-
-    /** if(browser) {
-        items = (window.localStorage.getItem("cart")) ? JSON.parse(window.localStorage.getItem("cart") || "") : []
-    } **/ 
-
-    const cart = writable(items);
+function createStore() {  
+    let items: Product[] = [];
+    const cart = writable<Product[]>([]);
+    loadFromLocalStorage();
 
     function saveToLocalStorage(): void {
         if(browser) {
             window.localStorage.clear();
-            //window.localStorage.setItem("cart", JSON.stringify(items));
+            window.localStorage.setItem("cart", JSON.stringify(items));
+            cart.set(items);
         }
     }
 
-    function addItem(item: CartItem) {
+    function loadFromLocalStorage(): void {
+        if(browser) {
+            items = (window.localStorage.getItem("cart")) ? JSON.parse(window.localStorage.getItem("cart") || "") : [];
+            
+            items.forEach(async function(item, i) {
+                const res = await fetch(`/shop/${item.id}`);
+                const data = await res.json();
+                items[i].price = data.price; 
+                saveToLocalStorage();
+            });
+        }
+    }
+
+    function add(item: Product) {
         cart.update(() => {
             items.push(item);
             return items;
         });
-        //saveToLocalStorage();
+        saveToLocalStorage();
     }
 
-    function removeItem(item: CartItem): void {
+    function remove(item: Product): void {
         cart.update(() => {
             let i = 0;
             for(i; i < items.length; i++) {
@@ -41,9 +46,9 @@ function createCart() {
             items.splice(i, 1);
             return items
         });
-        //saveToLocalStorage();
+        saveToLocalStorage();
     }
-    function updateItem(item: CartItem): void {
+    function update(item: Product): void {
         cart.update(() => {
             let i = 0;
             for(i; i < items.length; i++) {
@@ -54,14 +59,14 @@ function createCart() {
             }
             return items
         });
-        //saveToLocalStorage();
+        saveToLocalStorage();
     }
     function clear(): void {
         items = []
         cart.set(items);
-        //saveToLocalStorage();
+        saveToLocalStorage();
     }
-    function exists(item: CartItem): boolean {
+    function exists(item: Product): boolean {
         for(let i = 0; i < items.length; i++) {
             if(items[i].id == item.id) {
                 return true;
@@ -80,16 +85,15 @@ function createCart() {
 	return {
         ...cart,
         items,
-        addItem,
-        removeItem,
-        updateItem,
+        add,
+        remove,
+        update,
         clear,
         exists,
         total
 	}
 }
 
-export const cart = createCart();
-
+export const cart = createStore();
 
 

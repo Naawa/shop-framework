@@ -11,6 +11,7 @@ export function load({ fetch }) {
 	async function fetchMockups() {
 		const products: Product[] = [{
 			id: 1,
+            quantity: 1,
 			title: "Classic Hoodie",
 			price: 49,
 			rating: 4.7,
@@ -20,6 +21,7 @@ export function load({ fetch }) {
 		},
 		{
 			id: 2,
+            quantity: 1,
 			title: "Signature Hoodie",
 			price: 59,
 			rating: 4.3,
@@ -28,6 +30,7 @@ export function load({ fetch }) {
 
 		},{
 			id: 1,
+            quantity: 1,
 			title: "Classic Hoodie",
 			price: 49,
 			rating: 4.7,
@@ -37,6 +40,7 @@ export function load({ fetch }) {
 		},
 		{
 			id: 2,
+            quantity: 1,
 			title: "Signature Hoodie",
 			price: 59,
 			rating: 4.3,
@@ -45,6 +49,7 @@ export function load({ fetch }) {
 
 		},{
 			id: 1,
+            quantity: 1,
 			title: "Classic Hoodie",
 			price: 49,
 			rating: 4.7,
@@ -54,6 +59,7 @@ export function load({ fetch }) {
 		},
 		{
 			id: 2,
+            quantity: 1,
 			title: "Signature Hoodie",
 			price: 49,
 			rating: 4.3,
