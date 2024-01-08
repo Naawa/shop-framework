@@ -22,19 +22,7 @@ export function GET({ params }) {
 
     const product: Product = fetchMockup(params.productId);
 
-	const item: Item = {
-		...product,
-        quantity: 1,
-        color: "Black",
-        size: "Large",
-	}
-	
-	const data = {
-		product,
-		item,
-	}
-
-    return new Response(JSON.stringify(data),  { headers: {
+    return new Response(JSON.stringify(product),  { headers: {
         'Content-Type': 'application/json'
         }
     });

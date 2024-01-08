@@ -6,8 +6,16 @@
     import { cart } from "$lib/stores/cart.js";
 
     export let data;
-
-    const { product, item } = data;
+    const { product } = data;
+    
+    const item: Item = {
+		product: { ...product },
+        options: {
+            quantity: 1,
+            color: "Black",
+            size: "Large",
+        }
+	}
 </script>
 
 <style lang="scss">

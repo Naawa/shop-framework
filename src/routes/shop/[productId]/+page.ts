@@ -3,22 +3,21 @@ export async function load({ fetch, params }) {
     async function fetchProduct(productId: string) {
 		const res = await fetch(`https://dummyjson.com/products/${productId}`);
 		const data = await res.json();
-		const product: Product = data
+		const product: Product = data;
 
-		return product
+		return product;
 	}
 
 	async function fetchMockup(productId: string) {
 		const res = await fetch(`/shop/${productId}`);
 		const data = await res.json();
-		return data;
+		const product: Product = data;
+		
+		return product;
 	}
-
-	let { product, item } = await fetchMockup(params.productId)
 
 	return {
 		//product: fetchProduct(params.productId)
-		product,
-		item
+		product: fetchMockup(params.productId)
 	};
 }

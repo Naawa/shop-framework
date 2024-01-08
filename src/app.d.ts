@@ -17,10 +17,15 @@ declare global {
 		description: string
 	}
 
-	interface Item extends Product {
+	interface Options {
 		quantity: number,
 		size: string,
 		color: string,
+	}
+
+	interface Item {
+		product: Product,
+		options: Options
 	}
 }
 

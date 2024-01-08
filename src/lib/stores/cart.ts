@@ -18,20 +18,13 @@ function accessCart() {
         if(browser) {
             items = (window.localStorage.getItem("cart")) ? JSON.parse(window.localStorage.getItem("cart") || "") : [];
             
-            items.forEach(async function(cartItem, i) {
-                const res = await fetch(`/shop/${cartItem.id}`);
+            items.forEach(async function(item, i) {
+                const res = await fetch(`/shop/${item.product.id}`);
                 const data = await res.json();
-                const { product } = data;
-                items[i] = {
+                const product: Product = data;
+                items[i].product = {
                     ...product,
-                    ...items[i]
                 };
-                if(items[i].quantity > 5) {
-                    items[i].quantity = 5;
-                }
-                if(items[i].quantity < 1) {
-                    items[i].quantity = 1;
-                }
                 saveToLocalStorage();
             });
         }
@@ -49,7 +42,7 @@ function accessCart() {
         cart.update(() => {
             let i = 0;
             for(i; i < items.length; i++) {
-                if(items[i].id == item.id) {
+                if(items[i].product.id == item.product.id) {
                     break;
                 }
             }
@@ -62,7 +55,7 @@ function accessCart() {
         cart.update(() => {
             let i = 0;
             for(i; i < items.length; i++) {
-                if(items[i].id == item.id) {
+                if(items[i].product.id == item.product.id) {
                     items[i] = item;
                     break;
                 }
@@ -78,7 +71,7 @@ function accessCart() {
     }
     function exists(item: Item): boolean {
         for(let i = 0; i < items.length; i++) {
-            if(items[i].id == item.id) {
+            if(items[i].product.id == item.product.id) {
                 return true;
             }
         }
@@ -87,7 +80,7 @@ function accessCart() {
     function total(): number {
         let total: number = 0;
         items.forEach(item => {
-            let itemPrice = item.price * item.quantity;
+            let itemPrice = item.product.price * item.options.quantity;
             total += itemPrice;
         });
         return total;

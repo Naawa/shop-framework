@@ -1,18 +1,27 @@
 <script lang="ts">
 	import { cart } from "$lib/stores/cart";
-    export let item: CartItem;
+    export let item: Item;
+
+    if(item.options.quantity > 5) {
+        item.options.quantity = 5;
+        cart.update(item);
+    }
+    if(item.options.quantity < 1) {
+        item.options.quantity = 1;
+        cart.update(item);
+    }
 
     function decreaseQuantity(): void {
-        if (item.quantity > 0) {
-            item.quantity -= 1
+        if (item.options.quantity > 0) {
+            item.options.quantity -= 1
         }
         if(cart.exists(item)) {
             cart.update(item);
         }
     }
     function increaseQuantity(): void {
-        if (item.quantity < 5) {
-            item.quantity += 1;
+        if (item.options.quantity < 5) {
+            item.options.quantity += 1;
         }
         if(cart.exists(item)) {
             cart.update(item);
@@ -59,7 +68,7 @@
     <button on:click={decreaseQuantity}>
         <span></span>
     </button>
-    <h5>{item.quantity}</h5>
+    <h5>{item.options.quantity}</h5>
     <button on:click={increaseQuantity}>
         <span></span>
         <span></span>
