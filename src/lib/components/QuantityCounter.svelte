@@ -1,22 +1,21 @@
 <script lang="ts">
 	import { cart } from "$lib/stores/cart";
-    export let product: Product;
+    export let item: CartItem;
 
-    let quantity: number;
     function decreaseQuantity(): void {
-        if (product.quantity > 0) {
-            product.quantity -= 1
+        if (item.quantity > 0) {
+            item.quantity -= 1
         }
-        if(cart.exists(product)) {
-            cart.update(product);
+        if(cart.exists(item)) {
+            cart.update(item);
         }
     }
     function increaseQuantity(): void {
-        if (product.quantity < 5) {
-            product.quantity += 1;
+        if (item.quantity < 5) {
+            item.quantity += 1;
         }
-        if(cart.exists(product)) {
-            cart.update(product);
+        if(cart.exists(item)) {
+            cart.update(item);
         }
     }
 </script>
@@ -60,7 +59,7 @@
     <button on:click={decreaseQuantity}>
         <span></span>
     </button>
-    <h5>{product.quantity}</h5>
+    <h5>{item.quantity}</h5>
     <button on:click={increaseQuantity}>
         <span></span>
         <span></span>

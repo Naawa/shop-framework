@@ -1,9 +1,9 @@
 import { browser } from "$app/environment";
 import { writable} from "svelte/store";
 
-function createStore() {  
-    let items: Product[] = [];
-    const cart = writable<Product[]>([]);
+function accessCart() {  
+    let items: CartItem[] = [];
+    const cart = writable<CartItem[]>([]);
     loadFromLocalStorage();
 
     function saveToLocalStorage(): void {
@@ -18,16 +18,20 @@ function createStore() {
         if(browser) {
             items = (window.localStorage.getItem("cart")) ? JSON.parse(window.localStorage.getItem("cart") || "") : [];
             
-            items.forEach(async function(item, i) {
-                const res = await fetch(`/shop/${item.id}`);
+            items.forEach(async function(cartItem, i) {
+                const res = await fetch(`/shop/${cartItem.id}`);
                 const data = await res.json();
-                items[i].price = data.price; 
+                const { product, item } = data;
+                items[i] = {
+                    ...product,
+                    ...item
+                };
                 saveToLocalStorage();
             });
         }
     }
 
-    function add(item: Product) {
+    function add(item: CartItem) {
         cart.update(() => {
             items.push(item);
             return items;
@@ -35,7 +39,7 @@ function createStore() {
         saveToLocalStorage();
     }
 
-    function remove(item: Product): void {
+    function remove(item: CartItem): void {
         cart.update(() => {
             let i = 0;
             for(i; i < items.length; i++) {
@@ -48,7 +52,7 @@ function createStore() {
         });
         saveToLocalStorage();
     }
-    function update(item: Product): void {
+    function update(item: CartItem): void {
         cart.update(() => {
             let i = 0;
             for(i; i < items.length; i++) {
@@ -66,7 +70,7 @@ function createStore() {
         cart.set(items);
         saveToLocalStorage();
     }
-    function exists(item: Product): boolean {
+    function exists(item: CartItem): boolean {
         for(let i = 0; i < items.length; i++) {
             if(items[i].id == item.id) {
                 return true;
@@ -94,6 +98,6 @@ function createStore() {
 	}
 }
 
-export const cart = createStore();
+export const cart = accessCart();
 
 

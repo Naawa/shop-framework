@@ -16,6 +16,10 @@
             border: solid 1px
         }
         div {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2em;
             border: solid 1px;
             border-radius: 1em;
             padding: 2em 4em;
@@ -27,23 +31,22 @@
 <section>
     <span>
         {#key $cart}
-            <h5>Total: ${cart.total()}</h5>
+            <h4>Total: ${cart.total()}</h4>
         {/key}
         <button on:click={() => cart.clear()}><h5>Clear Cart</h5></button>
     </span>
     <br>
     <br>
-    {#each $cart as product} 
+    {#each $cart as item} 
         <div>
             <span>
-                <h4><a href="/shop/{product.id}">{product.title}</a></h4>
-                <p></p>
-                <QuantityCounter {product}></QuantityCounter>
+                <h4><a href="/shop/{item.id}">{item.title}</a></h4>
+                <h4>$ {item.price}</h4>
             </span>
-            <h4>$ {product.price}</h4>
+            <p>{item.description}</p>
             <br>
-            <br>
-            <button on:click={() => cart.remove(product)}><h5>Remove product</h5></button>
+            <QuantityCounter {item}></QuantityCounter>
+            <button on:click={() => cart.remove(item)}><h5>Remove item</h5></button>
         </div>
         <br>
     {/each}

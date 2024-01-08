@@ -3,28 +3,38 @@ export function GET({ params }) {
 		if(productId === "1") {
 			return {
 				id: 1,
-                quantity: 1,
 				title: "Classic Hoodie",
 				price: 49,
 				rating: 4.7,
 				description: "320 GSM",
-				images: ["../Mockup.png", "../Mockup2.png"]
+				images: ["../images/Mockup.png", "../images/Mockup2.png"]
 			}
 		}
 		return {
 			id: 2,
-            quantity: 1,
 			title: "Signature Hoodie",
 			price: 59,
 			rating: 4.3,
 			description: "450 GSM",
-			images: ["../Mockup2.png", "../Mockup.png"]
+			images: ["../images/Mockup.png", "../images/Mockup.png"]
 		}
 	}
 
     const product: Product = fetchMockup(params.productId);
 
-    return new Response(JSON.stringify(product),  { headers: {
+	const item: CartItem = {
+		...product,
+        quantity: 1,
+        color: "Black",
+        size: "Large",
+	}
+	
+	const data = {
+		product,
+		item,
+	}
+
+    return new Response(JSON.stringify(data),  { headers: {
         'Content-Type': 'application/json'
         }
     });

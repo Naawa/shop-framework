@@ -1,4 +1,4 @@
-export function load({ fetch, params }) {
+export async function load({ fetch, params }) {
 
     async function fetchProduct(productId: string) {
 		const res = await fetch(`https://dummyjson.com/products/${productId}`);
@@ -11,13 +11,14 @@ export function load({ fetch, params }) {
 	async function fetchMockup(productId: string) {
 		const res = await fetch(`/shop/${productId}`);
 		const data = await res.json();
-		const product: Product = data
-
-		return product
+		return data;
 	}
+
+	let { product, item } = await fetchMockup(params.productId)
 
 	return {
 		//product: fetchProduct(params.productId)
-		product: fetchMockup(params.productId)
+		product,
+		item
 	};
 }

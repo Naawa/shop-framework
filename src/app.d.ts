@@ -15,7 +15,12 @@ declare global {
 		images: string[],
 		rating: number,
 		description: string
+	}
+
+	interface CartItem extends Product {
 		quantity: number,
+		size: string,
+		color: string,
 	}
 }
 

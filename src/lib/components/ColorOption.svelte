@@ -10,7 +10,7 @@
             <input type="radio" id="option1" name="colour" value="black">
             <label for="option1">
                 <span class="radio-custom"></span>
-                <img src="/src/lib/icons/black-circle.png" height={50}px alt="black-image">
+                <img src="/icons/black-circle.png" height={50}px alt="black-image">
             </label>
         </div>
     </li>
@@ -20,7 +20,7 @@
             <input type="radio" id="option2" name="colour" value="blue">
             <label for="option2">
             <span class="radio-custom"></span>
-            <img src="/src/lib/icons/blue-circle.png" height={50}px alt="blue-image">
+            <img src="/icons/blue-circle.png" height={50}px alt="blue-image">
         </label>
         </div>
     </li>
@@ -29,7 +29,7 @@
             <input type="radio" id="option3" name="colour" value="grey">
             <label for="option3">
             <span class="radio-custom"></span>
-            <img src="/src/lib/icons/grey-circle.png" height={50}px alt="grey-image">
+            <img src="/icons/grey-circle.png" height={50}px alt="grey-image">
         </label>
         </div>
     </li>

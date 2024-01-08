@@ -7,7 +7,7 @@
 
     export let data;
 
-    const { product } = data;
+    const { product, item } = data;
 </script>
 
 <style lang="scss">
@@ -76,9 +76,9 @@
             <SizeOption></SizeOption>
         </span>
         {#key $cart}
-            {#if cart.exists(product) == false}
-                <QuantityCounter {product}></QuantityCounter>
-                <button on:click={() => cart.add(product)}><h5>ADD TO CART</h5></button>
+            {#if cart.exists(item) == false}
+                <QuantityCounter {item}></QuantityCounter>
+                <button on:click={() => cart.add(item)}><h5>ADD TO CART</h5></button>
             {:else}
                 <h5>ADDED TO <a href="/cart">CART</a></h5>
             {/if}

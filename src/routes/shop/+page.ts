@@ -7,69 +7,14 @@ export function load({ fetch }) {
 
 		return products;
 	}
-
+   
 	async function fetchMockups() {
-		const products: Product[] = [{
-			id: 1,
-            quantity: 1,
-			title: "Classic Hoodie",
-			price: 49,
-			rating: 4.7,
-			description: "320 GSM",
-			images: ["../Mockup.png", "../Mockup2.png"],
+		const res = await fetch('/shop');
+		const data = await res.json();
+		const products: Product[] = data;
 
-		},
-		{
-			id: 2,
-            quantity: 1,
-			title: "Signature Hoodie",
-			price: 59,
-			rating: 4.3,
-			description: "450 GSM",
-			images: ["../Mockup2.png", "../Mockup.png"],
-
-		},{
-			id: 1,
-            quantity: 1,
-			title: "Classic Hoodie",
-			price: 49,
-			rating: 4.7,
-			description: "320 GSM",
-			images: ["../Mockup.png", "../Mockup2.png"],
-
-		},
-		{
-			id: 2,
-            quantity: 1,
-			title: "Signature Hoodie",
-			price: 59,
-			rating: 4.3,
-			description: "450 GSM",
-			images: ["../Mockup2.png", "../Mockup.png"],
-
-		},{
-			id: 1,
-            quantity: 1,
-			title: "Classic Hoodie",
-			price: 49,
-			rating: 4.7,
-			description: "320 GSM",
-			images: ["../Mockup.png", "../Mockup2.png"],
-
-		},
-		{
-			id: 2,
-            quantity: 1,
-			title: "Signature Hoodie",
-			price: 49,
-			rating: 4.3,
-			description: "450 GSM",
-			images: ["../Mockup2.png", "../Mockup.png"],
-
-		}]
 		return products;
 	}
-   
 
 	return {
 		//products: fetchProducts()
