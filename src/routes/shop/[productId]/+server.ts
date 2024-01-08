@@ -22,7 +22,7 @@ export function GET({ params }) {
 
     const product: Product = fetchMockup(params.productId);
 
-	const item: CartItem = {
+	const item: Item = {
 		...product,
         quantity: 1,
         color: "Black",

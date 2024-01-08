@@ -17,7 +17,7 @@ declare global {
 		description: string
 	}
 
-	interface CartItem extends Product {
+	interface Item extends Product {
 		quantity: number,
 		size: string,
 		color: string,

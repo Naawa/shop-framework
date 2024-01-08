@@ -2,8 +2,8 @@ import { browser } from "$app/environment";
 import { writable} from "svelte/store";
 
 function accessCart() {  
-    let items: CartItem[] = [];
-    const cart = writable<CartItem[]>([]);
+    let items: Item[] = [];
+    const cart = writable<Item[]>([]);
     loadFromLocalStorage();
 
     function saveToLocalStorage(): void {
@@ -21,17 +21,23 @@ function accessCart() {
             items.forEach(async function(cartItem, i) {
                 const res = await fetch(`/shop/${cartItem.id}`);
                 const data = await res.json();
-                const { product, item } = data;
+                const { product } = data;
                 items[i] = {
                     ...product,
-                    ...item
+                    ...items[i]
                 };
+                if(items[i].quantity > 5) {
+                    items[i].quantity = 5;
+                }
+                if(items[i].quantity < 1) {
+                    items[i].quantity = 1;
+                }
                 saveToLocalStorage();
             });
         }
     }
 
-    function add(item: CartItem) {
+    function add(item: Item) {
         cart.update(() => {
             items.push(item);
             return items;
@@ -39,7 +45,7 @@ function accessCart() {
         saveToLocalStorage();
     }
 
-    function remove(item: CartItem): void {
+    function remove(item: Item): void {
         cart.update(() => {
             let i = 0;
             for(i; i < items.length; i++) {
@@ -52,7 +58,7 @@ function accessCart() {
         });
         saveToLocalStorage();
     }
-    function update(item: CartItem): void {
+    function update(item: Item): void {
         cart.update(() => {
             let i = 0;
             for(i; i < items.length; i++) {
@@ -70,7 +76,7 @@ function accessCart() {
         cart.set(items);
         saveToLocalStorage();
     }
-    function exists(item: CartItem): boolean {
+    function exists(item: Item): boolean {
         for(let i = 0; i < items.length; i++) {
             if(items[i].id == item.id) {
                 return true;
