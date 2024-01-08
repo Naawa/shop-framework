@@ -21,13 +21,12 @@
 <style lang="scss">
     section {
         &:first-of-type {
-            height: calc(100dvh - 4em);
+            min-height: calc(100dvh - 8em);
             max-height: 1080px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 4em;
-            padding: 4em 0;
 
             div {
                 display: flex;
@@ -42,6 +41,7 @@
                 span {
                     display: flex;
                     justify-content: space-between;
+                    align-items: center;
                 }
 
                 button {
@@ -73,10 +73,10 @@
     <div>
         <div>
             <span>
-                <h4>{product.title}</h4>
-                <h4>$ {product.price}</h4>
+                <h5>{product.title}</h5>
+                <h5 class="number">${product.price}</h5>
             </span>
-            <h5>{product.rating} &#9958;</h5>
+            <h6>{product.rating} &#9958;</h6>
         </div>
         <p>{product.description}.</p>
         <span>

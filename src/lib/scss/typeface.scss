@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Tajawal:700|Tajawal:400');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400&display=swap');
 
-body {
-  font-family: 'Tajawal';
-  font-weight: 400;
+* {
+  font-family: 'Fira Sans Condensed', serif;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Tajawal';
-  font-weight: 700;
+body {
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, strong {
+  font-weight: 400;
 }
 
 html {font-size: 100%;} /* 16px */

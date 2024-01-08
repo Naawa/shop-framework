@@ -12,7 +12,7 @@
     }
 
     function decreaseQuantity(): void {
-        if (item.options.quantity > 0) {
+        if (item.options.quantity > 1) {
             item.options.quantity -= 1
         }
         if(cart.exists(item)) {

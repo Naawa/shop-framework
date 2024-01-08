@@ -48,7 +48,7 @@
         }
 
         img {
-            box-shadow: 0 0 16px 4px #2E2E2E30;
+            box-shadow: 0 0 4px 1px #81818130;
             height: 640px;
             max-width: 640px;
         }

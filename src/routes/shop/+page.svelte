@@ -8,29 +8,28 @@
     section {
         display: flex;
         flex-direction: row;
-        gap: 4em;
-        row-gap: 8em;
+        gap: 2em;
         justify-content: center;
         align-items: center;
-        padding: 4em 8em;
+        padding: 4em;
         flex-wrap: wrap;
-        min-height: calc(100vh - 4em);
+        min-height: calc(100vh - 8em);
 
         div {
             display: flex;
             flex-direction: column;
-            gap: 1em;
 
             a {
                 display: flex;
                 flex-direction: column;
+                text-decoration: none;
                 gap: 1em;
             }
 
             img {
-                height: 512px;
-                width: 384px;
-                box-shadow: 0 0 8px 4px #2E2E2E30;
+                height: 640px;
+                width: 512px;
+                box-shadow: 0 0 4px 1px #81818130;
             }
             span {
                 display: flex;
@@ -45,15 +44,15 @@
             grid-template-columns: 1fr 1fr;
             padding: 2em 0;
             gap: 1em;
-            row-gap: 3em;
+            row-gap: 2em;
 
             div {
                 width: auto;
-                height: 300px;
+                max-height: 400px;
                 overflow: hidden;
 
                 img {
-                    height: 200px;
+                    height: 250px;
                 }
             }
         }
@@ -65,12 +64,9 @@
         <div>
             <a href="/shop/{product.id}">
                 <img src={product.images[0]} alt="Thumbnail.">
-                <h5>{product.title}</h5>
+                <strong>{product.title}</strong>
             </a>
-            <span>
-                <h5>{product.rating} &#9958;</h5>
-                <h5>$ {product.price}</h5>
-            </span>
+            <p class="number">${product.price}</p>
         </div>
     {/each}
 </section>

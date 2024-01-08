@@ -1,5 +1,5 @@
 <script lang="ts">
-	import QuantityCounter from "$lib/components/QuantityCounter.svelte";
+    import QuantityCounter from "$lib/components/QuantityCounter.svelte";
 	import { cart } from "$lib/stores/cart.js";
 </script>
 
@@ -9,6 +9,7 @@
         span {
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
         button {
             padding: 1em 3em;
@@ -24,6 +25,10 @@
             border-radius: 1em;
             padding: 2em 4em;
             margin: auto;
+
+            a {
+                text-decoration: none;
+            }
         }
     }
 </style>
@@ -31,7 +36,7 @@
 <section>
     <span>
         {#key $cart}
-            <h4>Total: ${cart.total()}</h4>
+            <h4>${cart.total()}</h4>>
         {/key}
         <button on:click={() => cart.clear()}><h5>Clear Cart</h5></button>
     </span>
@@ -41,7 +46,7 @@
         <div>
             <span>
                 <h4><a href="/shop/{item.product.id}">{item.product.title}</a></h4>
-                <h4>$ {item.product.price}</h4>
+                <h4 class="number">${item.product.price}</h4>
             </span>
             <p>{item.product.description}</p>
             <br>
