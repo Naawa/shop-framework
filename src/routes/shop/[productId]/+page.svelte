@@ -21,21 +21,18 @@
 <style lang="scss">
     section {
         &:first-of-type {
-            min-height: calc(100dvh - 8em);
-            max-height: 1080px;
+            min-height: clamp(800px, 100dvh - 4em, 1080px);
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 4em;
+            justify-content: space-evenly;
 
             div {
                 display: flex;
                 flex-direction: column;
                 width: clamp(300px, 100%, 600px);
-                gap: 2em;
-
-                div {
-                    gap: 0;
+                justify-content: center;
+                
+                &:last-of-type {
+                    gap: 3em;
                 }
 
                 span {
@@ -92,17 +89,19 @@
             <h6>{product.rating} &#9958;</h6>
         </div>
         <p>{product.description}.</p>
-        <span>
-            <ColorOption></ColorOption>
-            <SizeOption></SizeOption>
-        </span>
-        {#key $cart}
-            {#if cart.exists(item) == false}
-                <QuantityCounter {item}></QuantityCounter>
-                <button on:click={() => cart.add(item)}><h5>ADD TO CART</h5></button>
-            {:else}
-                <h5>ADDED TO <a href="/cart">CART</a></h5>
-            {/if}
-        {/key}
+        <div>
+            {#key $cart}
+                {#if cart.exists(item) == false}
+                    <span>
+                        <ColorOption></ColorOption>
+                        <QuantityCounter {item}></QuantityCounter>
+                        <SizeOption></SizeOption>
+                    </span>
+                    <button on:click={() => cart.add(item)}><h5>ADD TO CART</h5></button>
+                {:else}
+                    <h5>ADDED TO <a href="/cart">CART</a></h5>
+                {/if}
+            {/key}
+        </div>
     </div>
 </section>
