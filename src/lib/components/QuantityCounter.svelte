@@ -32,32 +32,31 @@
 <style lang="scss">
     div {
         display: flex;
+        justify-content: center;
         align-items: center;
-        justify-content: space-between;
-        width: 9em;
-        gap: 1em;
+        height: 100%;
 
         button {
-            height: 2.25em;
-            width: 2.25em;
+            height: 100%;
+            min-width: 4em;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #424242;
             color: #FFFCFC;
-            padding: 1.25em;
-            border: solid 2px #424242;
+            border: solid 0.1em #424242;
+
 
             span {
                 color: #FFFCFC;
                 position: absolute;
-                width: 1em;
-                border: solid 1px #FFFCFC;
+                width: 0.75em;
+                border: solid 0.1em #FFFCFC;
             }
             &:hover {
                 background-color: #FCFCFC;
                 span {
-                    border: solid 1px #424242;
+                    border: solid 0.1em #424242;
                 }
             }
 
@@ -69,7 +68,14 @@
                 }
             }
         }
-
+        h5 {
+            height: 100%;
+            min-width: 3em;
+            //border: solid 0.1em #424242;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 </style>
 

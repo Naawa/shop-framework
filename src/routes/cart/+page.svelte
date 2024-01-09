@@ -5,27 +5,28 @@
 
 <style lang="scss">
     section {
-        padding: 4em 0;
         span {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin: 8em 0 2em;
         }
         button {
             padding: 1em 3em;
-            border-radius: 1em;
             border: solid 1px
         }
         div {
+            span {
+                margin: 0;
+                height: 4em;
+            }
             display: flex;
             justify-content: center;
             flex-direction: column;
-            gap: 2em;
-            border: solid 1px;
-            border-radius: 1em;
+            gap: 1em;
+            border: solid 0.1em #424242;
             padding: 2em 4em;
             margin: auto;
-
             a {
                 text-decoration: none;
             }
@@ -40,8 +41,6 @@
         {/key}
         <button on:click={() => cart.clear()}><h5>Clear Cart</h5></button>
     </span>
-    <br>
-    <br>
     {#each $cart as item} 
         <div>
             <span>
@@ -49,10 +48,8 @@
                 <h4 class="number">${item.product.price}</h4>
             </span>
             <p>{item.product.description}</p>
-            <br>
-            <QuantityCounter {item}></QuantityCounter>
+            <span><QuantityCounter {item}></QuantityCounter></span>
             <button on:click={() => cart.remove(item)}><h5>Remove item</h5></button>
         </div>
-        <br>
     {/each}
 </section>

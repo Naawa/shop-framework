@@ -1,8 +1,6 @@
 <script lang="ts">
-	import QuantityCounter from "$lib/components/QuantityCounter.svelte";
+	import ProductOptions from "$lib/components/ProductOptions.svelte";
 	import Slideshow from "$lib/components/Slideshow.svelte";
-    import SizeOption from "$lib/components/SizeOption.svelte";
-	import ColorOption from "$lib/components/ColorOption.svelte";
     import { cart } from "$lib/stores/cart.js";
 
     export let data;
@@ -30,9 +28,16 @@
                 flex-direction: column;
                 width: clamp(300px, 100%, 600px);
                 justify-content: center;
-                
+
                 &:last-of-type {
-                    gap: 3em;
+                    gap: 0.5em;
+                }
+
+                div {
+                    gap: 0;
+                    &:last-of-type {
+                        gap: 1em;
+                    }
                 }
 
                 span {
@@ -42,7 +47,7 @@
 
                     h5 {
                         &:last-of-type {
-                            color: rgb(170, 170, 170);
+                            color: rgb(133, 133, 133);
                         }
                     }
                 }
@@ -72,7 +77,8 @@
         section {
             &:first-of-type {
                 flex-direction: column;
-                gap: 2em;
+                justify-content: normal;
+                gap: 3em;
             }
         }
     }
@@ -89,14 +95,11 @@
             <h6>{product.rating} &#9958;</h6>
         </div>
         <p>{product.description}.</p>
+        <br>
         <div>
             {#key $cart}
                 {#if cart.exists(item) == false}
-                    <span>
-                        <ColorOption></ColorOption>
-                        <QuantityCounter {item}></QuantityCounter>
-                        <SizeOption></SizeOption>
-                    </span>
+                    <ProductOptions {item}></ProductOptions>
                     <button on:click={() => cart.add(item)}><h5>ADD TO CART</h5></button>
                 {:else}
                     <h5>ADDED TO <a href="/cart">CART</a></h5>

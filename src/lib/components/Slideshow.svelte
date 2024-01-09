@@ -47,10 +47,11 @@
     @media (width < 800px) {
         div {
             grid-auto-flow: column;
-            height: 60%;
+            height: fit-content;
 
             img {
-                width: 100%;
+                height: 50dvh;
+                width: auto;
             }
         }
     }
