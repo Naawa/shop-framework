@@ -1,5 +1,5 @@
 import { browser } from "$app/environment";
-import { writable} from "svelte/store";
+import { writable } from "svelte/store";
 
 function accessCart() {  
     let items: Item[] = [];
@@ -17,7 +17,6 @@ function accessCart() {
     function loadFromLocalStorage(): void {
         if(browser) {
             items = (window.localStorage.getItem("cart")) ? JSON.parse(window.localStorage.getItem("cart") || "") : [];
-            
             items.forEach(async function(item, i) {
                 const res = await fetch(`/shop/${item.product.id}`);
                 const data = await res.json();

@@ -42,16 +42,29 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+
+                    h5 {
+                        &:last-of-type {
+                            color: rgb(170, 170, 170);
+                        }
+                    }
                 }
 
                 button {
-                    background-color: #2E2E2E;
+                    background-color: #424242;
                     color: #FFFCFC;
                     padding: 1em 0;
-                    border-radius: 16px;
+                    border: solid 2px #424242;
 
                     h5 {
                         color: #FFFCFC;
+                    }
+                    
+                    &:hover {
+                        background-color: #FCFCFC;
+                        h5 {
+                            color: #424242;
+                        }
                     }
                 }
             }
@@ -74,7 +87,7 @@
         <div>
             <span>
                 <h5>{product.title}</h5>
-                <h5 class="number">${product.price}</h5>
+                <h5>$ {product.price}</h5>
             </span>
             <h6>{product.rating} &#9958;</h6>
         </div>

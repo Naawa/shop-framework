@@ -36,7 +36,7 @@
 <section>
     <span>
         {#key $cart}
-            <h4>${cart.total()}</h4>>
+            <h4>${cart.total()}</h4>
         {/key}
         <button on:click={() => cart.clear()}><h5>Clear Cart</h5></button>
     </span>

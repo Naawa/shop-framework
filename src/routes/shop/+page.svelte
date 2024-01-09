@@ -8,7 +8,7 @@
     section {
         display: flex;
         flex-direction: row;
-        gap: 2em;
+        gap: 3em;
         justify-content: center;
         align-items: center;
         padding: 4em;
@@ -24,16 +24,20 @@
                 flex-direction: column;
                 text-decoration: none;
                 gap: 1em;
+
+                strong {
+                    color: currentColor;
+                }
             }
 
             img {
-                height: 640px;
-                width: 512px;
+                max-height: 640px;
+                max-width: 512px;
                 box-shadow: 0 0 4px 1px #81818130;
             }
-            span {
-                display: flex;
-                justify-content: space-between;
+
+            strong {
+                color: rgb(170, 170, 170);
             }
         }
     }
@@ -64,9 +68,9 @@
         <div>
             <a href="/shop/{product.id}">
                 <img src={product.images[0]} alt="Thumbnail.">
-                <strong>{product.title}</strong>
+                <p>{product.title}</p>
             </a>
-            <p class="number">${product.price}</p>
+            <strong>$ {product.price}</strong>
         </div>
     {/each}
 </section>

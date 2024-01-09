@@ -38,19 +38,27 @@
         gap: 1em;
 
         button {
-            height: 3em;
-            width: 3em;
-            border-radius: 100%;
-            border: none;
-            background-color: #2E2E2E;
+            height: 2.25em;
+            width: 2.25em;
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: #424242;
+            color: #FFFCFC;
+            padding: 1.25em;
+            border: solid 2px #424242;
 
             span {
+                color: #FFFCFC;
                 position: absolute;
                 width: 1em;
                 border: solid 1px #FFFCFC;
+            }
+            &:hover {
+                background-color: #FCFCFC;
+                span {
+                    border: solid 1px #424242;
+                }
             }
 
             &:last-of-type {
@@ -61,6 +69,7 @@
                 }
             }
         }
+
     }
 </style>
 

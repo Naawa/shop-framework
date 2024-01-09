@@ -41,3 +41,7 @@ grammarly-desktop-integration {
     background-color: colors.$accent;
     color: colors.$background;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}

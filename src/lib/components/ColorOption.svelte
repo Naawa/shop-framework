@@ -7,14 +7,15 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 2.75em;
-        width: 9em;
+        height: 2em;
+        width: 6em;
 
         div {
-            height: 2.75em;
-            width: 2.75em;
-            border-radius: 25px;
-            background-color: antiquewhite;
+            height: 2em;
+            width: 2em;
+            border-radius: 100%;
+            background-color: #FCFCFC;
+            border: solid 0.15em #424242;
             &:hover {
                 transform: scale(1.2);
             }
