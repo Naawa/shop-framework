@@ -13,7 +13,16 @@
         }
         button {
             padding: 1em 3em;
-            border: solid 1px
+            border: solid 1px;
+            background-color: #FCFCFC;
+            border: solid 0.1em #424242;
+            padding: 1em;
+            &:hover {
+                background-color: #424242;
+                h5 {
+                    color: #FCFCFC;
+                }
+            }
         }
         div {
             span {
