@@ -19,8 +19,8 @@ declare global {
 
 	interface Options {
 		quantity: number,
-		size: string,
-		color: string,
+		size?: string,
+		color?: string,
 	}
 
 	interface Item {

@@ -35,9 +35,10 @@
         justify-content: center;
         align-items: center;
         height: 100%;
+        width: min-content;
 
         button {
-            height: 100%;
+            min-height: 4em;
             min-width: 4em;
             display: flex;
             justify-content: center;
@@ -71,7 +72,6 @@
         h5 {
             height: 100%;
             min-width: 3em;
-            //border: solid 0.1em #424242;
             display: flex;
             justify-content: center;
             align-items: center;

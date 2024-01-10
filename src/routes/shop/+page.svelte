@@ -8,16 +8,17 @@
     section {
         display: flex;
         flex-direction: row;
-        gap: 3em;
+        gap: 2em;
         justify-content: center;
         align-items: center;
-        padding: 4em;
+        padding: 2em 0;
         flex-wrap: wrap;
         min-height: calc(100vh - 8em);
 
         div {
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
 
             a {
                 display: flex;
@@ -31,8 +32,8 @@
             }
 
             img {
-                max-height: 640px;
-                max-width: 512px;
+                height: 640px;
+                width: 512px;
                 box-shadow: 0 0 4px 1px #81818130;
             }
 

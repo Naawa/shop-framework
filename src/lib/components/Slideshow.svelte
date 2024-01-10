@@ -50,8 +50,8 @@
             height: fit-content;
 
             img {
-                height: 50dvh;
-                width: auto;
+                max-height: 45dvh;
+                max-width: 100%;
             }
         }
     }

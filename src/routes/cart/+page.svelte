@@ -1,43 +1,100 @@
 <script lang="ts">
-    import QuantityCounter from "$lib/components/QuantityCounter.svelte";
+    import ProductOptions from "$lib/components/ProductOptions.svelte";
 	import { cart } from "$lib/stores/cart.js";
 </script>
 
 <style lang="scss">
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #FCFCFC;
+        border: solid 0.1em #424242;
+        padding: 1em;
+        &:hover {
+            h5 {
+                color: #FCFCFC;
+            }
+            background-color: #424242;
+        }
+    }
     section {
+        display: flex;
+        flex-direction: column;
+        gap: 4em;
+        padding: 1em 0;
+        
         span {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 8em 0 2em;
-        }
-        button {
-            padding: 1em 3em;
-            border: solid 1px;
-            background-color: #FCFCFC;
-            border: solid 0.1em #424242;
-            padding: 1em;
-            &:hover {
-                background-color: #424242;
-                h5 {
-                    color: #FCFCFC;
-                }
+            div {
+                flex-direction: column;
+                justify-content: center;
+                gap: 0;
             }
-        }
-        div {
-            span {
-                margin: 0;
-                height: 4em;
-            }
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            gap: 1em;
-            border: solid 0.1em #424242;
-            padding: 2em 4em;
-            margin: auto;
+            
             a {
                 text-decoration: none;
+            }
+        }
+
+        div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            justify-content: center;
+
+            div {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                max-width: clamp(400px, 30%, 30%);
+                max-height: 700px;
+                border: solid 0.1em #424242;
+                padding: 1em;
+                gap: 0;
+                
+                div {
+                    flex-direction: row;
+                    width: 100%;
+                    max-width: none;
+                    justify-content: space-between;
+                    border: none;
+
+                    h5 {
+                        &:nth-of-type(2) {
+                            color: rgb(133, 133, 133);
+                        }
+                    }
+
+                    a {
+                        text-decoration: none;
+                    }
+                    &:last-of-type {
+                        gap: 1em;
+
+                        span {
+                            display: flex;
+                            width: 100%;
+                            justify-content: normal;
+                            align-items: normal;
+                            gap: 0em;
+
+                            img {
+                                max-height: auto;
+                                width: 90%;
+
+                            }
+                            p {
+                                width: 170%;
+                            }
+                        }
+                        button {
+                            width: 100%;
+                        }
+                    }
+                }
             }
         }
     }
@@ -46,19 +103,29 @@
 <section>
     <span>
         {#key $cart}
-            <h4>${cart.total()}</h4>
+            <div>
+                <h5>{cart.items.length} Items</h5>
+                <h5>$ {cart.total()}</h5>
+            </div>
         {/key}
         <button on:click={() => cart.clear()}><h5>Clear Cart</h5></button>
     </span>
-    {#each $cart as item} 
+    <div>
+        {#each $cart as item} 
         <div>
-            <span>
-                <h4><a href="/shop/{item.product.id}">{item.product.title}</a></h4>
-                <h4 class="number">${item.product.price}</h4>
-            </span>
-            <p>{item.product.description}</p>
-            <span><QuantityCounter {item}></QuantityCounter></span>
-            <button on:click={() => cart.remove(item)}><h5>Remove item</h5></button>
+            <div>
+                <h5><a href="/shop/{item.product.id}">{item.product.title}</a></h5>
+                <h5 class="number">${item.product.price}</h5>
+            </div>
+            <div>
+                <span>
+                    <a href="/shop/{item.product.id}"><img src={item.product.images[0]} alt="Thumbnail."></a>
+                    <p>{item.product.description}</p>
+                </span>
+                <ProductOptions {item}></ProductOptions>
+                <button on:click={() => cart.remove(item)}><h5>Remove item</h5></button>
+            </div>
         </div>
-    {/each}
+        {/each}
+    </div>    
 </section>

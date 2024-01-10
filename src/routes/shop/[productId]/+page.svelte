@@ -10,8 +10,6 @@
 		product: { ...product },
         options: {
             quantity: 1,
-            color: "Black",
-            size: "Large",
         }
 	}
 </script>
@@ -19,23 +17,28 @@
 <style lang="scss">
     section {
         &:first-of-type {
-            min-height: clamp(800px, 100dvh - 4em, 1080px);
+            min-height: calc(100dvh - 8em);
             display: flex;
-            justify-content: space-evenly;
+            justify-content: center;
+            align-items: center;
+            gap: 8em;
+            padding: 2em 0;
 
             div {
                 display: flex;
                 flex-direction: column;
                 width: clamp(300px, 100%, 600px);
-                justify-content: center;
 
-                &:last-of-type {
-                    gap: 0.5em;
+                p {
+                    margin: 1em 0;
+                    min-height: 3em;
+                    max-height: 100px;
+                    overflow: hidden;
                 }
 
                 div {
                     gap: 0;
-                    &:last-of-type {
+                        &:last-of-type {
                         gap: 1em;
                     }
                 }
@@ -77,7 +80,7 @@
         section {
             &:first-of-type {
                 flex-direction: column;
-                justify-content: normal;
+                justify-content: center;
                 gap: 3em;
             }
         }
@@ -94,8 +97,7 @@
             </span>
             <h6>{product.rating} &#9958;</h6>
         </div>
-        <p>{product.description}.</p>
-        <br>
+        <p>{product.description}</p>
         <div>
             {#key $cart}
                 {#if cart.exists(item) == false}

@@ -7,7 +7,10 @@
     span {
         display: grid;
         grid-auto-flow: column;
+        place-items: center;
+        grid-template-areas: "styles quantity sizes";
         height: 4em;
+        width: 100%;
         button {
             display: flex;
             align-items: center;
@@ -15,6 +18,8 @@
             background-color: #FCFCFC;
             border: solid 0.1em #424242;
             padding: 1em;
+            height: 4em;
+            width: 100%;
             &:hover {
                 transform: scale(1.2);
                 color: #FCFCFC;
