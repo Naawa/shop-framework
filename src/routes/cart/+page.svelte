@@ -50,7 +50,7 @@
                 flex-direction: row;
                 flex-wrap: wrap;
                 max-width: clamp(400px, 30%, 30%);
-                max-height: 700px;
+                max-height: 800px;
                 border: solid 0.1em #424242;
                 padding: 1em;
                 gap: 0;
